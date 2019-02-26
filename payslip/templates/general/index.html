@@ -1,0 +1,44 @@
+<p>Payslip</p>
+
+<p>Employee Details Format</p>
+<p>What fields will each employee have</p>
+<p>Compulsary field: name (Already exists)<p>
+<p>Request Type: POST</p>
+<p>Request Data: {
+    fieldname: [fieldtype]
+}</p>
+<p>Allowed Field Types:
+    <ul>
+        <li>Integer
+            eg: Request Data:{
+                "fieldnamexyz": "Integer"
+            }
+        </li>
+
+        <li>Character
+            eg: Request Data: {
+                "fieldnamexyz": "Character",
+                "size": 255
+            }
+        </li>
+
+        <li>Dropdown
+            eg: Request Data: {
+                "fieldnamexyz": "Dropdown",
+                "choices": ["a","b","c"]
+            }
+        </li>
+
+        <li>Date
+            eg: Request Data: {
+                "fieldnamexyz": "Date",
+            }
+        </li>
+        <li>Operation
+            eg: Request Data: {
+                "fieldnamexyz": "Operation",
+                "operation": "fieldnamexyz + fieldnamexyz"
+            }
+        </li>
+    </ul>
+</p>

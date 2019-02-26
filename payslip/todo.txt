@@ -1,0 +1,53 @@
+1. Make dynamic invoice generation system.
+2. Have one view for one customer/user.
+3. Add a suggestion model to change the field of employees.
+4. Use regex toi map the pattern of employee ids.
+
+
+ROUGH:
+employeedetailsmodel:
+date_of_birth = models.DateField(auto_now=False, auto_now_add=False)
+    gender_choices = (
+        ("M", "Male"),
+        ("F", "Female"),
+        ("O", "Other")
+    )
+    gender =  models.CharField(max_length=20, choices=gender_choices, default="M")
+    
+    # employee office details
+    designation = models.CharField(max_length=50)
+    employee_id = models.CharField(max_length=50, null=False)
+    date_of_joining = models.DateField(auto_now=False, auto_now_add=False)
+
+    def __str__(self):
+        return self.name
+
+employeesalarydetailsmodel:
+# employee bank details
+    pf_account = models.CharField(max_length=10)
+    esi_account = models.CharField(max_length=10)
+    bank_account = models.CharField(max_length=10)
+
+    # employee salary details
+    arrears = models.IntegerField()
+    basic_salary = models.IntegerField()
+    bonus_salary = models.IntegerField()
+    hra = models.IntegerField()
+    diksha = models.IntegerField()
+    
+    # employee salary deduction details
+    income_tax = models.IntegerField()
+    prof_tax = models.IntegerField()
+
+    def __str__(self):
+        return self.employee.name
+
+payslipmodel:
+period = models.DateField(auto_now=False, auto_now_add=False)
+    days_in_month = models.IntegerField()
+    present_days = models.IntegerField()
+    absent_days = models.IntegerField()
+
+    def __str__(self):
+        # return self.employee.name
+        return str(self.period) 

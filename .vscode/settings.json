@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "venv/bin/python2.7",
+    "python.linting.pep8Enabled": true,
+    "djangointellisense.debugMessages": true
+}

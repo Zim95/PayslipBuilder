@@ -1,0 +1,42 @@
+.thead{
+  border: 0px;
+  background-color: #1a8cff; 
+  border-bottom: none;
+}
+
+.tfield{
+  text-align: left;
+}
+.tfieldmid{
+  text-align: center;
+}
+
+.tvalue{
+  text-align: right;
+}
+.tvaluemid{
+  text-align: center;
+}
+
+.table-fixed{
+  width: 100%;
+  background-color: white;
+  margin: 0px auto;
+  float: none;
+  border: none;
+}
+
+.table th, .table td {
+
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 0px solid #dee2e6;
+
+}
+
+.table thead th {
+
+  vertical-align: bottom;
+  border-bottom: 0px solid #dee2e6;
+
+}

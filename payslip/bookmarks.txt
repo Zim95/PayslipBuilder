@@ -1,0 +1,81 @@
+Django and Postgres:
+1. Using raw sql on models - http://hirokiky.org/tech/using_djangos_raw.html
+2. Using cursor for raw sql - https://micropyramid.com/blog/django-raw-sql-queries/
+    NOTE: To get data from raw sql query:
+        AFTER: cursor.execute()
+        -> cursor.fetchall() // For fetching all results
+        -> cursor.fetchone() // To fetch one result
+3. Getting all field names in a model - https://stackoverflow.com/questions/3106295/django-get-list-of-model-fields
+4. Getting all field types in a model - https://stackoverflow.com/questions/20081924/how-to-get-field-type-string-from-db-model-in-django
+5. Postgres with django setup - https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-django-application-on-ubuntu-14-04
+6. Serializing sql result to json using serializers - https://stackoverflow.com/questions/26745450/how-to-serialize-sql-query-to-json (Not the original post)
+7. 
+
+Django:
+1. How to read token data from request: 
+    reqData.META.get('HTTP_HERE_LIES_YOUR_TOKEN_NAME')
+2. How to avoid csrf token for POST requests:
+     -> from django.views.decorators.csrf import csrf_exempt
+    Then add, @csrf_exempt on top of every function view.
+     -> @csrf_exempt
+        def viewname(request):
+            pass
+    NOTE: For class based views look for a view called APIView.
+          It is a superset of all Views available in Django.
+          Learn to extempt csrf token there as well.
+3. How to limit the allowed HTTP methods for function based views.
+     -> from rest_framework.decorators import api_view
+    Then add @api_view(['POST', 'PUT', 'DELETE']) on top of views.
+     -> @api_view(['POST', 'PUT', 'DELETE'])
+        def viewname(request):
+            pass
+    NOTE: For class based views, after inheriting the APIView class.
+          We can override get, post, put, delete, .... methods.
+          These will serve as allowed HTTP methods. 
+4. How to get url parameters in queries:
+    NOTE: This will only work with GET requests.
+          You cannot send a POST request to "url/queryparam/whatever".
+          For, query params only GET requests will work.
+    For this,
+        create the url with regex.
+        eg: 
+        urlpatterns = [
+            url(
+                'employeefield/create',
+                views.editEmployeeField,
+                name="employeefield_create"
+            ),
+            url(
+                r'^employeefield/(?P<employeeid>\S+)/(?P<date>\S+)/?',
+                views.retrieveEmployeeField,
+                name="employeefield_get"
+            ),
+            url(
+                'create/',
+                views.payslipcreate,
+                name="payslip_create"
+            ),
+            url(
+                r'^(?P<employeeid>\S+)/',
+                views.payslipget,
+                name="payslip_get"
+            )
+        ]
+
+        Then the query params will be available as function parameters
+        eg: 
+            @csrf_exempt
+            @api_view(['GET'])
+            def retrieveEmployeeField(request, employeeid, date):
+                pass
+        NOTE: Here, employeeid and date were passed as query params.
+              One may add unlimited query params
+
+Postgres: 
+1. Setup Postgres on Ubuntu - https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-16-04
+2. Getting all field name and types - https://stackoverflow.com/questions/20194806/how-to-get-a-list-column-names-and-datatype-of-a-table-in-postgresql/20194807
+3. Creating charfields with choices using enum - https://stackoverflow.com/questions/41482137/postgresql-right-index-choice-for-a-status-field-varchar
+4. All postgres datatypes - http://www.postgresqltutorial.com/postgresql-data-types/
+5. Renaming a column in postgres - http://www.postgresqltutorial.com/postgresql-rename-column/
+6. Altering the datatype of a column in postgres - http://www.postgresqltutorial.com/postgresql-change-column-type/
+7. 

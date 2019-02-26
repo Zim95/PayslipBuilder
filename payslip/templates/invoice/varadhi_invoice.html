@@ -1,0 +1,85 @@
+{% extends 'base.html' %} 
+
+{% block title %} | Payslip {% endblock %}
+
+{% block content %}
+
+  <section id="payslip">
+    <div class="container-fluid">
+        <!--First row-->
+        <div class="row text-center">
+            <div class="col-md-6">
+                <img src = "/png.png" alt="company_logo"/>
+            </div>
+            <div class="col-md-6" style="text-align:left;">
+                <p>
+                    #6/2, 1st Floor, Lavakusha Building,<br/>
+                    Beratena Agrahara, Begur Hubli,<br/>
+                    Electronic city, Karnataka,<br/>
+                    Bengaluru - 560100<br/>
+                    Email: hr@varadhismartek.com<br/>
+                </p>
+            </div>
+            
+        </div>
+
+        <!--Second row-->
+        <div class="row text-center">
+            <div class="col-md-12">
+                <table class="table table-fixed text-centered">
+                    <thead class="thead">
+                        <tr>
+                            <th class="col-xs-4">Name: {{ name }}</th>
+                            <th class="col-xs-4">Gender: Male</th>
+                            <th class="col-xs-4">Employee Id: VS-something</th>
+                            <th class="col-xs-4">Period: Stuff</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody">
+                        <tr>
+                            <td class="col-xs-4 tfield">Designation</td>
+                            <td class="col-xs-4 tvalue">value</td>
+                            <td class="col-xs-4 tfield">PF No.</td>
+                            <td class="col-xs-4 tvalue">value</td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-4 tfield">Designation</td>
+                            <td class="col-xs-4 tvalue">value</td>
+                            <td class="col-xs-4 tfield">PF No.</td>
+                            <td class="col-xs-4 tvalue">value</td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-4 tfield">Designation</td>
+                            <td class="col-xs-4 tvalue">value</td>
+                            <td class="col-xs-4 tfield">PF No.</td>
+                            <td class="col-xs-4 tvalue">value</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td class="col-xs-4 tfield">Designation</td>
+                            <td class="col-xs-4 tvaluemid">value</td>
+                            <td class="col-xs-4 tfieldmid">PF No.</td>
+                            <td class="col-xs-4 tvalue">value</td>
+                        </tr>
+                    </tfoot>
+                </table> 
+            </div>
+            
+        </div>
+
+        <!--Third row-->
+        <div class="row text-center">
+            <div class="col-md-4">
+            
+            </div>
+            <div class="col-md-4">
+            
+            </div>
+            <div class="col-md-4">
+            
+            </div>
+        </div>
+    </div>
+  </section>
+{% endblock %}
